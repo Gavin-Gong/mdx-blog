@@ -1,32 +1,40 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { MDXProvider } from "@mdx-js/react";
+import { MDXRemote } from "next-mdx-remote";
 import { getPosts } from "./api/post";
+import Button from "../components/Button"
 
-const components: any = {
+const components: Record<string, React.ReactNode> = {
   code: function Text(props: any) {
     return <p style={{ color: "red" }} {...props}></p>;
   },
+  img: undefined,
+  h1: undefined,
+  h2: undefined,
+  p: undefined,
+  inlineCode: undefined,
+  Button
 };
+
+// TODO: use require.context to auto import all components
+// becase of next-mdx-remote dont support import component in .mdx file
 export default function Page(props: any) {
   return (
     <div>
       <h1>{props.title}</h1>
-      <div>{JSON.stringify(props)}</div>
-      <MDXProvider components={components}>{props.content}</MDXProvider>
+      <MDXRemote {...props.source} components={components}></MDXRemote>
     </div>
   );
 }
 
 export const getStaticProps: GetStaticProps = async (props) => {
   const { params = {} } = props;
-
   const posts = await getPosts();
   const post = posts.find((item) => item.slug === params.slug)!;
   return {
     props: {
       title: "??",
-      content: post.content,
-      data: post.data,
+      // data: post.data,
+      source: post.source,
     },
   };
 };
