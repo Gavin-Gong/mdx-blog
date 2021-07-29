@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useState } from "react";
 
 export default function Page() {
-  const [value, setValue ] = useState(0)
+  const [value, setValue] = useState(0);
   return (
     <div>
       <h1>Page</h1>
