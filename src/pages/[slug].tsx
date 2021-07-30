@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { getPosts } from "./api/post";
-import Button from "../components/Button"
+import Button from "../components/Button";
 
 const components: Record<string, React.ReactNode> = {
   code: function Text(props: any) {
@@ -12,7 +12,7 @@ const components: Record<string, React.ReactNode> = {
   h2: undefined,
   p: undefined,
   inlineCode: undefined,
-  Button
+  Button,
 };
 
 // TODO: use require.context to auto import all components
@@ -20,7 +20,7 @@ const components: Record<string, React.ReactNode> = {
 export default function Page(props: any) {
   return (
     <div>
-      <h1>{props.title}</h1>
+      <h1 className="text-pink-500 text-xl">{props.title}</h1>
       <MDXRemote {...props.source} components={components}></MDXRemote>
     </div>
   );

@@ -1,1 +1,42 @@
-hello
+# 标题
+
+---
+
+文本, `inlineCode`, **加粗** , _itatic_, **_粗体斜体_**
+
+> talk is cheap, show me the code
+
+- item 1
+- item 1
+- item 1
+  - item 1.1
+  - item 1.2
+- item 1
+
+1. item
+2. item
+3. item
+
+```ts
+export async function getPosts() {
+  return fs.readdir(POST_DIR).then((fileList) => {
+    console.log(fileList);
+    return Promise.all(
+      fileList.map((file) => {
+        return fs
+          .readFile(path.join(POST_DIR, file), "utf8")
+          .then((contents) => {
+            return serialize(contents) || null;
+          })
+          .then((contents) => {
+            return {
+              slug: file.replace(".mdx", ""),
+              filePath: file.replace(".mdx", ""),
+              source: contents,
+            };
+          });
+      })
+    );
+  });
+}
+```
