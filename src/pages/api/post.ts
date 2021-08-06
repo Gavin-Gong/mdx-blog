@@ -7,20 +7,26 @@ const POST_DIR = path.join(process.cwd(), "_posts");
 
 export async function getPosts() {
   return fs.readdir(POST_DIR).then((fileList) => {
-    console.log(fileList);
     return Promise.all(
       fileList.map((file) => {
         return fs
           .readFile(path.join(POST_DIR, file), "utf8")
-          .then((contents) => {
-            return serialize(contents) || null;
-          })
-          .then((contents) => {
+          .then((rawContent) => {
+            const { content, data } = matter(rawContent);
             return {
-              slug: file.replace(".mdx", ""),
-              filePath: file.replace(".mdx", ""),
-              source: contents,
+              data,
+              content,
             };
+          })
+          .then((res) => {
+            return serialize(res.content).then((reactStr) => {
+              return {
+                slug: file.replace(".mdx", ""),
+                filePath: file.replace(".mdx", ""),
+                source: reactStr,
+                data: res.data ?? {},
+              };
+            });
           });
       })
     );
