@@ -11,6 +11,7 @@ import { OL, LI, UL } from "../components/md/List";
 import { Pagraph } from "../components/md/Pragraph";
 import { BlockQuote } from "../components/md/Quote";
 import { Image } from "../components/md/Image";
+import { Table, THead, TBody, TR, TH, TD } from "../components/md/Table";
 
 const components: MDXProviderComponents = {
   a: Link,
@@ -27,12 +28,12 @@ const components: MDXProviderComponents = {
   li: LI,
   p: Pagraph,
   blockquote: BlockQuote,
-  // table: () => <table />,
-  // thead: () => <thead />,
-  // tbody: () => <tbody />,
-  // tr: () => <tr />,
-  // td: () => <td />,
-  // th: () => <th />,
+  table: Table,
+  thead: THead,
+  tbody: TBody,
+  tr: TR,
+  td: TD,
+  th: TH,
   img: Image,
 };
 

@@ -1,0 +1,8 @@
+.md-title {
+  @apply text-pink-500 font-bold;
+}
+.md-title::before {
+  display: inline-block;
+  content: "#";
+  @apply mr-1 text-gray-500 font-light text-lg;
+}

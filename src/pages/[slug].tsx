@@ -7,15 +7,25 @@ import { Header } from "../components/Header";
 
 export default function Page(props: any) {
   console.log(props);
+  const { title, date, tag = [] } = props.data ?? {};
   return (
     <main>
       <Header></Header>
       <section className="m-auto w-3/5">
-        <h2 className="text-pink-500 text-3xl font-medium">
-          {props.data?.title}
-        </h2>
-        <code>{JSON.stringify(props.data)}</code>
-        <ul className="tag-list"></ul>
+        <h2 className="text-pink-500 text-2xl font-medium">{title}</h2>
+        <section className="flex mt-2 mb-4">
+          <div className="mr-4">{date}</div>
+          <ul className="tag-list">
+            {tag.map((tag: string) => (
+              <li
+                key={tag}
+                className="inline-block mr-3 bg-green-200 rounded-md px-2"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        </section>
         <MDXRemote {...props.source}></MDXRemote>
       </section>
       <Footer />
