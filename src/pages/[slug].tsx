@@ -6,12 +6,11 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 
 export default function Page(props: any) {
-  console.log(props);
   const { title, date, tag = [] } = props.data ?? {};
   return (
     <main>
       <Header></Header>
-      <section className="m-auto w-3/5">
+      <section className="m-auto w-3/5 mt-6">
         <h2 className="text-pink-500 text-2xl font-medium">{title}</h2>
         <section className="flex mt-2 mb-4">
           <div className="mr-4">{date}</div>
