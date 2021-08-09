@@ -1,3 +1,3 @@
 export function Pagraph(props: any) {
-  return <p>{props.children}</p>
+  return <div>{props.children}</div>
 }

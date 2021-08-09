@@ -1,9 +1,13 @@
 export function OL(props: any) {
-  return <ol>{props.children}</ol>;
+  return (
+    <ol className="pl-4 py-2" style={{ listStyle: "revert" }}>
+      {props.children}
+    </ol>
+  );
 }
 export function UL(props: any) {
-  return <ul>{props.children}</ul>;
+  return <ul className="pl-4 py-2">{props.children}</ul>;
 }
 export function LI(props: any) {
-  return <li>{props.children}</li>;
+  return <li className="ml-2">{props.children}</li>;
 }

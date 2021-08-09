@@ -11,8 +11,10 @@ export default function Page(props: any) {
     <main>
       <Header></Header>
       <section className="m-auto w-3/5">
+        <h2 className="text-pink-500 text-3xl font-medium">
+          {props.data?.title}
+        </h2>
         <code>{JSON.stringify(props.data)}</code>
-        <h2 className="text-pink-500 text-xl">{props.data?.title}</h2>
         <ul className="tag-list"></ul>
         <MDXRemote {...props.source}></MDXRemote>
       </section>
