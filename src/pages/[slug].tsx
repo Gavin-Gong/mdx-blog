@@ -2,14 +2,12 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { getPosts } from "./api/post";
 
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
+import { Layout } from "../components/Layout";
 
 export default function Page(props: any) {
   const { title, date, tag = [] } = props.data ?? {};
   return (
-    <main>
-      <Header></Header>
+    <Layout>
       <section className="m-auto w-3/5 mt-6">
         <h2 className="text-pink-500 text-2xl font-medium">{title}</h2>
         <section className="flex mt-2 mb-4">
@@ -27,8 +25,7 @@ export default function Page(props: any) {
         </section>
         <MDXRemote {...props.source}></MDXRemote>
       </section>
-      <Footer />
-    </main>
+    </Layout>
   );
 }
 
@@ -39,7 +36,6 @@ export const getStaticProps: GetStaticProps = async (props) => {
 
   return {
     props: {
-      // title: post.data.title ?? null,
       source: post.source,
       data: post.data,
     },

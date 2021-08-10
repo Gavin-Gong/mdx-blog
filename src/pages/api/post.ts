@@ -24,6 +24,7 @@ export async function getPosts() {
                 slug: file.replace(".mdx", ""),
                 filePath: file.replace(".mdx", ""),
                 source: reactStr,
+                content: res.content,
                 data: res.data ?? {},
               };
             });
