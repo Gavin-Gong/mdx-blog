@@ -33,8 +33,7 @@ export async function getPosts() {
               data: res.data ?? {},
             };
           });
-        })
-        .then(tap);
+        });
     })
   );
 }

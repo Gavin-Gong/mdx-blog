@@ -38,8 +38,8 @@ export const getStaticProps: GetStaticProps = async (props) => {
 
   return {
     props: {
-      source: post.source,
-      data: post.data,
+      source: post!.source,
+      data: post!.data,
     },
   };
 };
