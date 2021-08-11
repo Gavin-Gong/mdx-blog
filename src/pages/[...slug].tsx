@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async (props) => {
   const { params = {} } = props;
   const posts = await getPosts();
   const post = posts.find(
-    (item) => item.slug.join("/") === (params.slug as string[]).join("/")
+    (item: any) => item.slug.join("/") === (params.slug as string[]).join("/")
   );
 
   return {
