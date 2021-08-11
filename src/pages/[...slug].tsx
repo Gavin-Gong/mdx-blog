@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps = async (props) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getPosts();
   return {
-    paths: posts.map((item) => {
+    paths: posts.map((item: any) => {
       return {
         params: {
           slug: item.slug,
