@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { getPosts } from "./api/post";
-export default function Home(props) {
+export default function Home(props: any) {
   const { list = [] } = props;
   return (
     <div>

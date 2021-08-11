@@ -31,7 +31,6 @@ export default function Page(props: any) {
 
 export const getStaticProps: GetStaticProps = async (props) => {
   const { params = {} } = props;
-  props.previewData;
   const posts = await getPosts();
   const post = posts.find(
     (item) => item.slug.join("/") === (params.slug as string[]).join("/")

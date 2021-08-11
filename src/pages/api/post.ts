@@ -39,7 +39,7 @@ export async function getPosts() {
   );
 }
 
-function tap(v) {
+function tap(v: any) {
   // console.log(v.slug);
   return v;
 }
