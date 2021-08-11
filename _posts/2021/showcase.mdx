@@ -1,0 +1,71 @@
+---
+title: MDX showcase
+tag: [markdown, mdx]
+date: "2021-07-31"
+---
+
+# Bit Titlle
+
+## 文本
+
+### 3 级标题
+
+#### 4 级标题
+
+##### 4 级标题
+
+文本, `inlineCode`, **加粗** , _itatic_, **_粗体斜体_**, ~~不是~~
+
+<https://moonland.cc>
+[blog](https://moonland.cc)
+
+> talk is cheap, show me the code
+
+## 列表
+
+- item 1
+- item 1
+- item 1
+  - item 1.1
+  - item 1.2
+- item 1
+
+1. item
+2. item
+3. item
+
+## 代码块
+
+```ts
+export async function getPosts() {
+  return fs.readdir(POST_DIR).then((fileList) => {
+    return Promise.all(
+      fileList.map((file) => {
+        return fs
+          .readFile(path.join(POST_DIR, file), "utf8")
+          .then((contents) => {
+            return serialize(contents) || null;
+          })
+          .then((contents) => {
+            return {
+              slug: file.replace(".mdx", ""),
+              filePath: file.replace(".mdx", ""),
+              source: contents,
+            };
+          });
+      })
+    );
+  });
+}
+```
+
+## 图片
+
+![GitHub](https://avatars.githubusercontent.com/u/9414378?v=4&s=100)
+
+## 表格
+
+| name       | age |
+| ---------- | --- |
+| LearnShare | 12  |
+| Mike       | 32  |

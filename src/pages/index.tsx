@@ -5,7 +5,6 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { getPosts } from "./api/post";
 export default function Home(props) {
-  console.log(props);
   const { list = [] } = props;
   return (
     <div>
@@ -18,7 +17,7 @@ export default function Home(props) {
       <main>
         {list.map((v: any) => (
           <div key={v.slug}>
-            <Link href={`/${encodeURIComponent(v.slug)}`}>{v.data.title}</Link>
+            <Link href={`/${v.slug.join("/")}`}>{v.data.title}</Link>
           </div>
         ))}
       </main>
