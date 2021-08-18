@@ -23,10 +23,9 @@ export async function getPosts() {
         .then((res) => {
           return serialize(res.content).then((reactStr) => {
             return {
-              slug: path
+              slug: `post/${path
                 .replace(`${POST_DIR}/`, "")
-                .replace(".mdx", "")
-                .split("/"),
+                .replace(".mdx", "")}`.split("/"),
               filePath: path.replace(POST_DIR, ""),
               source: reactStr,
               content: res.content,
