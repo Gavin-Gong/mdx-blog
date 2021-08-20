@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
-import Link from "next/link";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { ArticleCard } from "../components/ArticleCard";
 import { getPosts } from "./api/post";
 export default function Home(props: any) {
   const { list = [] } = props;
@@ -14,11 +14,9 @@ export default function Home(props: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main>
+      <main className="pt-6">
         {list.map((v: any) => (
-          <div key={v.slug}>
-            <Link href={`/${v.slug.join("/")}`}>{v.data.title}</Link>
-          </div>
+          <ArticleCard {...v} key={v.slug} />
         ))}
       </main>
       <Footer />

@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { getPosts } from "./api/post";
-
 import { Layout } from "../components/Layout";
 
 export default function Page(props: any) {
